@@ -4,7 +4,7 @@
   "packageManager": "pnpm@10.14.0",
   "scripts": {
     "dev": "concurrently -k -n api,web -c blue,cyan \"pnpm --filter @docs-ans/api dev\" \"pnpm --filter @docs-ans/web dev\"",
-    "build": "pnpm -r build",
+    "build": "pnpm --filter @docs-ans/shared build && pnpm --filter @docs-ans/api build && pnpm --filter @docs-ans/web build",
     "typecheck": "pnpm -r typecheck",
     "lint": "pnpm -r lint"
   },

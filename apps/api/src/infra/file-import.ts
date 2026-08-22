@@ -1,6 +1,6 @@
 import mammoth from "mammoth";
 import pdfParse from "pdf-parse";
-import type { UploadedFile } from "./upload-file";
+import type { UploadedFile } from "./upload-file.js";
 
 export async function extractPlainText(file: UploadedFile) {
   const name = file.originalname.toLowerCase();

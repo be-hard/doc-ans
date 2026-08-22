@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Header, HttpCode, Inject, Param, Post, Res } from "@nestjs/common";
 import type { Response } from "express";
-import { KnowledgeService } from "./knowledge.service";
+import { KnowledgeService } from "./knowledge.service.js";
 import type { AnswerRequest } from "@docs-ans/shared";
 
 @Controller()

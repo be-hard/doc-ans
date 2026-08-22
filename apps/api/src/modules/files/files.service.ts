@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { extractPlainText } from "../../infra/file-import";
-import type { UploadedFile } from "../../infra/upload-file";
-import { WorkspaceStateService } from "../../state/workspace-state.service";
+import { extractPlainText } from "../../infra/file-import.js";
+import type { UploadedFile } from "../../infra/upload-file.js";
+import { WorkspaceStateService } from "../../state/workspace-state.service.js";
 
 @Injectable()
 export class FilesService {

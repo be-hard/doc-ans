@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    branches:
+      - main
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-local
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: [self-hosted, docs-ans-local]
+    environment: local
+
+    env:
+      OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CHAT_MODEL: ${{ vars.CHAT_MODEL }}
+      EMBEDDING_MODEL: ${{ vars.EMBEDDING_MODEL }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Verify Docker
+        run: docker version
+
+      - name: Build and start stack
+        run: docker compose -f docker-compose.prod.yml up -d --build --remove-orphans
+
+      - name: Health check
+        run: curl -fsS --retry 10 --retry-delay 3 http://127.0.0.1/api/health

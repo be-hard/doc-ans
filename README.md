@@ -35,3 +35,9 @@ pnpm dev
 - 第一版默认使用内存存储，链路完整但不依赖外部数据库。
 - 如果配置 `OPENAI_BASE_URL` 和 `OPENAI_API_KEY`，SSE 回答会切换到 OpenAI 兼容接口。
 - 关键流程已写注释，方便后续把内存实现替换成 Prisma / Qdrant / BullMQ。
+
+## 部署
+
+- 本地生产模拟：`pnpm build`
+- 容器化部署：`docker compose -f docker-compose.prod.yml up -d --build`
+- 自托管 CI/CD：见 [DEPLOYMENT.md](./DEPLOYMENT.md)

@@ -1,5 +1,5 @@
 import type { Citation } from "@docs-ans/shared";
-import { getEnv } from "./env";
+import { getEnv } from "./env.js";
 
 export interface AnswerContext {
   question: string;

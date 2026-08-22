@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { CoreService } from "./core.service";
+import { CoreService } from "./core.service.js";
 
 @Controller()
 export class CoreController {

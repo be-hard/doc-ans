@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { deleteDocumentFromQdrant, upsertChunksToQdrant } from "../../infra/vector-index";
-import { buildChunks } from "../../infra/rag";
-import { WorkspaceStateService } from "../../state/workspace-state.service";
+import { deleteDocumentFromQdrant, upsertChunksToQdrant } from "../../infra/vector-index.js";
+import { buildChunks } from "../../infra/rag.js";
+import { WorkspaceStateService } from "../../state/workspace-state.service.js";
 
 @Injectable()
 export class DocumentsService {

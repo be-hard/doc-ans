@@ -1,6 +1,6 @@
 import type { AnswerRequest, Citation, DocumentRecord, DocumentVersion, IngestJob, KnowledgeEvent, KnowledgeScope } from "@docs-ans/shared";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {

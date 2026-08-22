@@ -1,6 +1,6 @@
-import { getEnv } from "./env";
+import { getEnv } from "./env.js";
 import type { ChunkRecord } from "@docs-ans/shared";
-import { cosineSimilarity, embedText } from "./rag";
+import { cosineSimilarity, embedText } from "./rag.js";
 
 interface QdrantHit {
   id: string;

@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { InMemoryStore, seedDocuments } from "./store";
+import { InMemoryStore, seedDocuments } from "./store.js";
 
 @Injectable()
 export class WorkspaceStateService {

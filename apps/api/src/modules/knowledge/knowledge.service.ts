@@ -2,10 +2,10 @@ import { Inject, Injectable } from "@nestjs/common";
 import { randomUUID } from "node:crypto";
 import type { Response } from "express";
 import type { AnswerRequest, KnowledgeEvent, KnowledgeScope } from "@docs-ans/shared";
-import { streamAnswer } from "../../infra/llm";
-import { buildPreviewChunks, searchChunks } from "../../infra/rag";
-import { searchQdrant, type VectorSearchHit } from "../../infra/vector-index";
-import { WorkspaceStateService } from "../../state/workspace-state.service";
+import { streamAnswer } from "../../infra/llm.js";
+import { buildPreviewChunks, searchChunks } from "../../infra/rag.js";
+import { searchQdrant, type VectorSearchHit } from "../../infra/vector-index.js";
+import { WorkspaceStateService } from "../../state/workspace-state.service.js";
 
 @Injectable()
 export class KnowledgeService {

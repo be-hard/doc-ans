@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Inject, Param, Patch, Post } from "@nestjs/common";
-import { DocumentsService } from "./documents.service";
+import { DocumentsService } from "./documents.service.js";
 
 @Controller("documents")
 export class DocumentsController {
