@@ -1,7 +1,6 @@
 import { Suspense, lazy, useEffect, useMemo, useState, type ChangeEvent } from "react";
 import { api } from "@/services/index";
 import "./index.scss";
-import styles from "./index-2.module.css"
 
 type AiAskModel = "sensenova-6.8-flash-lite" | "kimi-k3" | "glm-5.2";
 
@@ -101,11 +100,6 @@ export default function Login() {
 
   return (
     <main style={{ maxWidth: 760, margin: "48px auto", padding: "0 20px" }}>
-      <div className="bg">
-        <div className="left-side">124</div>
-        <div className="bg-right">456</div>
-        <div className={styles.module}>890</div>
-      </div>
       <h1>AI Ask</h1>
 
       <section style={{ marginTop: 20 }}>
