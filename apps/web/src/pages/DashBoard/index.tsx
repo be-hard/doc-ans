@@ -12,7 +12,8 @@ import type {
   KnowledgeEvent,
   KnowledgeScope,
 } from "@docs-ans/shared";
-import { api } from "./api";
+import { api } from "@/services/index";
+import "./index.css";
 
 type Mode = "question" | "source";
 
@@ -114,7 +115,7 @@ function ToolbarButton(props: {
   );
 }
 
-export function App() {
+export default function DashBoard() {
   const [documents, setDocuments] = useState<DocumentRecord[]>([]);
   const [activeDocumentId, setActiveDocumentId] = useState<string>("");
   const [search, setSearch] = useState("");

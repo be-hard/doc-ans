@@ -196,6 +196,12 @@ export function seedDocuments(): SeedState {
           "TypeScript 是 JavaScript 的超集，强调静态类型和可维护性。LangChain 适合做复杂工具调用，但在文档工作台里，更重要的是稳定的 chunk、检索和引用回填。"
       },
       {
+        title: "  群接龙",
+        tags: ["RAG", "群接龙"],
+        contentText:
+          "群接龙是一个社群团购小程序，解决了社群团购的痛点。它可以让社群成员在群里直接接龙下单，方便快捷。主要用于私域微信场景下的社群团购。"
+      },
+      {
         title: "跟算法第三方",
         tags: ["RAG"],
         contentText:

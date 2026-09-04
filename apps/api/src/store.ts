@@ -189,24 +189,24 @@ export class InMemoryStore {
 export function seedDocuments(): SeedState {
   return {
     documents: [
-      {
-        title: "  Typescript 教程",
-        tags: ["RAG", "TypeScript"],
-        contentText:
-          "TypeScript 是 JavaScript 的超集，强调静态类型和可维护性。LangChain 适合做复杂工具调用，但在文档工作台里，更重要的是稳定的 chunk、检索和引用回填。"
-      },
-      {
-        title: "跟算法第三方",
-        tags: ["RAG"],
-        contentText:
-          "当知识库需要答复用户时，先检索相关 chunk，再把证据片段拼进上下文，最后由模型输出带引用的答案。"
-      },
-      {
-        title: "端到端验证文档",
-        tags: ["QA", "Draft"],
-        contentText:
-          "编辑器、入库和 SSE 流式回答必须在一个闭环里打通，才能让工作台看起来像一个真正的产品。"
-      }
+      // {
+      //   title: "  Typescript 教程",
+      //   tags: ["RAG", "TypeScript"],
+      //   contentText:
+      //     "TypeScript 是 JavaScript 的超集，强调静态类型和可维护性。LangChain 适合做复杂工具调用，但在文档工作台里，更重要的是稳定的 chunk、检索和引用回填。"
+      // },
+      // {
+      //   title: "跟算法第三方",
+      //   tags: ["RAG"],
+      //   contentText:
+      //     "当知识库需要答复用户时，先检索相关 chunk，再把证据片段拼进上下文，最后由模型输出带引用的答案。"
+      // },
+      // {
+      //   title: "端到端验证文档",
+      //   tags: ["QA", "Draft"],
+      //   contentText:
+      //     "编辑器、入库和 SSE 流式回答必须在一个闭环里打通，才能让工作台看起来像一个真正的产品。"
+      // }
     ]
   };
 }

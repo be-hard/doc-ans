@@ -6,7 +6,11 @@
     "dev": "concurrently -k -n api,web -c blue,cyan \"pnpm --filter @docs-ans/api dev\" \"pnpm --filter @docs-ans/web dev\"",
     "build": "pnpm --filter @docs-ans/shared build && pnpm --filter @docs-ans/api build && pnpm --filter @docs-ans/web build",
     "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "docker:build": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml build",
+    "docker:up": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build --remove-orphans",
+    "docker:down": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml down",
+    "docker:logs": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

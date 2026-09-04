@@ -39,5 +39,5 @@ pnpm dev
 ## 部署
 
 - 本地生产模拟：`pnpm build`
-- 容器化部署：`docker compose -f docker-compose.prod.yml up -d --build`
+- 容器化部署：`docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build`
 - 自托管 CI/CD：见 [DEPLOYMENT.md](./DEPLOYMENT.md)

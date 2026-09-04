@@ -5,7 +5,14 @@ import type { AnswerRequest } from "@docs-ans/shared";
 
 @Controller()
 export class KnowledgeController {
-  constructor(@Inject(KnowledgeService) private readonly knowledgeService: KnowledgeService) {}
+  constructor(@Inject(KnowledgeService) private readonly knowledgeService: KnowledgeService) { }
+
+  @Post("ai/ask")
+  @HttpCode(200)
+  @Header("Content-Type", "text/event-stream; charset=utf-8")
+  async aiAsk(@Body() body: any, @Res() res: Response) {
+    await this.knowledgeService.aiAsk(body, res);
+  }
 
   @Post("knowledge/search")
   searchKnowledge(@Body() body: any) {

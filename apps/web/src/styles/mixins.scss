@@ -1,0 +1,26 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 三角形
+@mixin triangle($width, $height, $color, $direction) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  @if $direction == up {
+    border-width: 0 $width/2 $height $width/2;
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == down {
+    border-width: $height $width/2 0 $width/2;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == left {
+    border-width: $height/2 $width 0 $height/2;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == right {
+    border-width: $height/2 0 $height/2 $width;
+    border-color: transparent transparent transparent $color;
+  }
+}

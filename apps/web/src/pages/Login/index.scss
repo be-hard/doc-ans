@@ -1,0 +1,47 @@
+@use "sass:list";
+@use "sass:map";
+
+$background-color: #f5f5f5;
+$primary-color: #1890ff;
+$middle-font: 10px;
+$color-arr: (#f5f5f5, #1890ff, #ff4d4f, #52c41a, #faad14);
+$sizes-map:(
+  small: 12px,
+  medium: 16px,
+  large: 20px,
+);
+// 写一个函数
+@function calculateFontSize($size, $color-arr) {
+  @if ($size < 12px) {
+    @return $size * 1.5;
+  } @else if ($size >= 12px and $size < 16px) {
+    @return $size * 1.3;
+  } @else {
+    @return $size * 1.1;
+  }
+}
+
+@function getColor($index, $color-arr) {
+  @return list.nth($color-arr, $index);
+}
+
+.bg{
+  $middle-font: 10px;
+  background-color: $background-color;
+  .left-side{
+    width: funcs.px-to-rem(200px);
+    height: funcs.px-to-rem(200px);
+    @include mixins.flex-center;
+
+    background-color: $primary-color;
+    font-size: $middle-font;
+    color: getColor(3,$color-arr);
+    font-size: vars.$base-font-size;
+  }
+  .bg-right{
+    background-color: $primary-color;
+    font-size: calculateFontSize($middle-font, $color-arr);
+    color: getColor(4, $color-arr);
+    font-size: map.get($sizes-map, medium);
+  }
+}
