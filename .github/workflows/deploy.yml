@@ -39,7 +39,7 @@ jobs:
         run: docker version
 
       - name: Build and start stack
-        run: docker compose -f docker-compose.prod.yml up -d --build --remove-orphans
+        run: docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build --remove-orphans
 
       - name: Health check
         run: curl -fsS --retry 10 --retry-delay 3 http://127.0.0.1/api/health

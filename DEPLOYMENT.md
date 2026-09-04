@@ -10,13 +10,17 @@
    - 最后编译 `apps/web`
    - 作用：确认代码在发布前可以完整通过编译
 
-2. `docker-compose.prod.yml`
+2. `docker-compose.base.yml`
+   - `qdrant`、`postgres`、`redis` 负责基础设施
+   - 提供业务服务要连接的基础网络和持久化卷
+
+3. `docker-compose.prod.yml`
    - `api` 容器负责业务接口
    - `web` 容器负责静态站点和反向代理
-   - `qdrant`、`postgres`、`redis` 负责基础设施
+   - 通过服务名引用基础服务
    - 作用：把应用和依赖服务一起编排起来
 
-3. `deploy/nginx.conf`
+4. `deploy/nginx.conf`
    - 前端走静态文件
    - `/api/*` 转发到后端
    - 作用：让浏览器只访问一个站点地址，减少 CORS 问题
@@ -46,7 +50,7 @@
    - 验证 API 和 Web 的 Docker 镜像能成功构建
 
 2. `main` 分支上的 `CI` 成功后触发 `Deploy`
-   - 在本地 self-hosted runner 上执行 `docker compose -f docker-compose.prod.yml up -d --build`
+   - 在本地 self-hosted runner 上执行 `docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build`
    - 重建并启动整套服务
    - 调用 `http://127.0.0.1/api/health` 做部署后健康检查
 
@@ -55,7 +59,7 @@
 如果你不想通过 workflow，也可以在本地机器直接执行：
 
 ```bash
-docker compose -f docker-compose.prod.yml up -d --build
+docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build
 ```
 
 ## 回滚

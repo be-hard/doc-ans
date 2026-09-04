@@ -5,3 +5,4 @@ apps/*/dist
 .env
 .env.local
 pnpm-debug.log*
+**/*.tsbuildinfo
